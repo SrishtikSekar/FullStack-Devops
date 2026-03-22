@@ -8,13 +8,16 @@
     <p id="data">Loading...</p>
 
     <script>
-        fetch('http://backend:5000/student-details')
+        fetch('http://localhost:5000/student-details')
         .then(res => res.json())
         .then(data => {
             document.getElementById('data').innerText =
-                data.name + " | " + data.roll + " | " + data.register;
+                data.name + " | " + data.roll ;
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            document.getElementById('data').innerText = "Error loading data";
+            console.log(err);
+        });
     </script>
 </body>
 </html>

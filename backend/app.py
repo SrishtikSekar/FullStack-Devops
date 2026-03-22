@@ -1,13 +1,14 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/student-details', methods=['GET'])
 def student():
     return jsonify({
         "name": "Srishtik Sekar",
         "roll": "2023BCS0220",
-        "register": "YOUR_REGISTER_NO"
     })
 
 if __name__ == '__main__':

@@ -3,25 +3,25 @@ pipeline {
 
     environment {
         DOCKERHUB = "2023bcs0220gsrishtiksekar"
-        FRONTEND_IMAGE = "${DOCKERHUB}/2023BCS0220_frontend"
-        BACKEND_IMAGE = "${DOCKERHUB}/2023BCS0220_backend"
+        FRONTEND_IMAGE = "${DOCKERHUB}/2023bcs0220_frontend"
+        BACKEND_IMAGE = "${DOCKERHUB}/2023bcs0220_backend"
     }
 
     stages {
 
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/SrishtikSekar/FullStack-Devops.git'
+                git branch: 'main', url: 'https://github.com/SrishtikSekar/devops-cicd-lab.git'
             }
         }
 
-        stage('Build Backend Image') {
+        stage('Build Backend') {
             steps {
                 sh 'docker build -t $BACKEND_IMAGE ./backend'
             }
         }
 
-        stage('Build Frontend Image') {
+        stage('Build Frontend') {
             steps {
                 sh 'docker build -t $FRONTEND_IMAGE ./frontend'
             }
