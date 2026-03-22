@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Details</title>
+</head>
+<body>
+    <h1>Student Details</h1>
+    <p id="data">Loading...</p>
+
+    <script>
+        fetch('http://backend:5000/student-details')
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById('data').innerText =
+                data.name + " | " + data.roll + " | " + data.register;
+        })
+        .catch(err => console.log(err));
+    </script>
+</body>
+</html>
